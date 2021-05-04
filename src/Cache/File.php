@@ -13,12 +13,11 @@ use DateInterval;
 use DateTime;
 use DateTimeInterface;
 use FilesystemIterator;
-use Psr\SimpleCache\CacheInterface;
 
 /**
  * 文件缓存类
  */
-class File implements CacheInterface
+class File
 {
     /**
      * 配置参数
@@ -50,7 +49,8 @@ class File implements CacheInterface
         }
 
         if (empty($this->options['path'])) {
-            $this->options['path'] = __DIR__ . DIRECTORY_SEPARATOR . '../cache';
+            $this->rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__))))) . DIRECTORY_SEPARATOR;
+            $this->options['path'] = $this->rootPath . 'cache';
         }
 
         if (substr($this->options['path'], -1) != DIRECTORY_SEPARATOR) {

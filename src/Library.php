@@ -7,8 +7,6 @@
  * 启动日期 ( 2021/5/4 20:07 )
  */
 
-use Library\Cache\File;
-
 if (!function_exists('cache')) {
     /**
      * 缓存管理
@@ -20,8 +18,7 @@ if (!function_exists('cache')) {
      */
     function cache($name = null, $value = '', $options = null)
     {
-        $cacheMode = !empty($options['mode']) ? $options['mode'] : 'File';
-        $cache     = new $cacheMode($options);
+        $cache     = new Library\Cache\File();
         if ('' === $value) {
             // 获取缓存
             return 0 === strpos($name, '?') ? $cache->has(substr($name, 1)) : $cache->get($name);
