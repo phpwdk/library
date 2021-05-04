@@ -67,7 +67,7 @@ class File implements CacheInterface
      * @param string $name 缓存变量名
      * @return string
      */
-    public function getCacheKey(string $name): string
+    public function getCacheKey($name)
     {
         $name = hash($this->options['hash_type'], $name);
 
@@ -89,7 +89,7 @@ class File implements CacheInterface
      * @param string $name 缓存标识名
      * @return array|null
      */
-    protected function getRaw(string $name)
+    protected function getRaw($name)
     {
         $filename = $this->getCacheKey($name);
 
@@ -125,7 +125,7 @@ class File implements CacheInterface
      * @param string $name 缓存变量名
      * @return bool
      */
-    public function has($name): bool
+    public function has($name)
     {
         return $this->getRaw($name) !== null;
     }
@@ -156,7 +156,7 @@ class File implements CacheInterface
      * @param int|\DateTime $expire 有效时间 0为永久
      * @return bool
      */
-    public function set($name, $value, $expire = null): bool
+    public function set($name, $value, $expire = null)
     {
         $this->writeTimes++;
 
@@ -203,7 +203,7 @@ class File implements CacheInterface
      * @param int $step 步长
      * @return false|int
      */
-    public function inc(string $name, int $step = 1)
+    public function inc($name, $step = 1)
     {
         if ($raw = $this->getRaw($name)) {
             $value  = unserialize($raw['content']) + $step;
@@ -224,7 +224,7 @@ class File implements CacheInterface
      * @param int $step 步长
      * @return false|int
      */
-    public function dec(string $name, int $step = 1)
+    public function dec($name, $step = 1)
     {
         return $this->inc($name, -$step);
     }
@@ -236,7 +236,7 @@ class File implements CacheInterface
      * @param string $name 缓存变量名
      * @return bool
      */
-    public function delete($name): bool
+    public function delete($name)
     {
         $this->writeTimes++;
 
@@ -249,7 +249,7 @@ class File implements CacheInterface
      * @access public
      * @return bool
      */
-    public function clear(): bool
+    public function clear()
     {
         $this->writeTimes++;
 
@@ -267,7 +267,7 @@ class File implements CacheInterface
      * @param array $keys 缓存标识列表
      * @return void
      */
-    public function clearTag(array $keys): void
+    public function clearTag($keys)
     {
         foreach ($keys as $key) {
             $this->unlink($key);
@@ -281,7 +281,7 @@ class File implements CacheInterface
      * @param string $path
      * @return bool
      */
-    private function unlink(string $path): bool
+    private function unlink($path)
     {
         try {
             return is_file($path) && unlink($path);
@@ -324,7 +324,7 @@ class File implements CacheInterface
      * @param integer|DateTimeInterface|DateInterval $expire 有效期
      * @return int
      */
-    protected function getExpireTime($expire): int
+    protected function getExpireTime($expire)
     {
         if ($expire instanceof DateTimeInterface) {
             $expire = $expire->getTimestamp() - time();
