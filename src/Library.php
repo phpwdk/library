@@ -7,12 +7,9 @@
  * 启动日期 ( 2021/5/4 20:07 )
  */
 
-namespace Library;
-
 use Library\Cache\File;
 
-class Library
-{
+if (!function_exists('cache')) {
     /**
      * 缓存管理
      *
