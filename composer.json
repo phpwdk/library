@@ -16,8 +16,7 @@
     "autoload": {
         "files": [],
         "psr-4": {
-            "library\\cache\\": "src/Cache",
-            "library\\Util\\": "src/Util"
+            "Library\\": "src"
         }
     }
 }

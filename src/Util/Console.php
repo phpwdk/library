@@ -7,7 +7,7 @@
  * 启动日期 ( 2021/5/4 14:06 )
  */
 
-namespace library\Util;
+namespace Library\Util;
 
 class Console
 {

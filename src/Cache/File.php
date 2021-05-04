@@ -7,9 +7,7 @@
  * 启动日期 ( 2021/5/4 14:06 )
  */
 
-declare (strict_types=1);
-
-namespace library\cache;
+namespace Library\Cache;
 
 use DateInterval;
 use DateTime;
@@ -52,7 +50,7 @@ class File implements CacheInterface
         }
 
         if (empty($this->options['path'])) {
-            $this->options['path'] = __DIR__ . DIRECTORY_SEPARATOR . 'cache';
+            $this->options['path'] = __DIR__ . DIRECTORY_SEPARATOR . '../cache';
         }
 
         if (substr($this->options['path'], -1) != DIRECTORY_SEPARATOR) {
