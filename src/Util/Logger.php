@@ -7,7 +7,7 @@
  * 启动日期 ( 2021/5/4 14:00 )
  */
 
-namespace Util;
+namespace library\Util;
 
 class Logger
 {
@@ -15,9 +15,9 @@ class Logger
 
     public static $_LOGGER_DIR = "";
 
-    private static $_logs = [];
+    private static $_logs    = [];
     private static $logLevel = [
-        LOG_EMERG => 'EMERG',
+        LOG_EMERG   => 'EMERG',
         LOG_CRIT => 'CRIT',
         LOG_ERR => 'ERROR',
         LOG_WARNING => 'WARNING',

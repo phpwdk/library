@@ -7,13 +7,13 @@
  * 启动日期 ( 2021/5/4 14:06 )
  */
 
-namespace Util;
+namespace library\Util;
 
 class Console
 {
     public static function logs(...$data)
     {
-        $log = func_get_args();
+        $log    = func_get_args();
         $logStr = "";
         foreach ($log as $value) {
             $logStr .= self::getStr($value) . " ";
