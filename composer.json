@@ -13,10 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Library\\": "src"
+            "Library\\": "src",
+            "Library\\Cache\\": "src/Cache"
         },
         "files": [
-            "src/Library.php"
+            "src/Library.php",
+            "src/Cache/File.php"
         ]
     }
 }
