@@ -23,7 +23,8 @@ class Library
      */
     function cache($name = null, $value = '', $options = null)
     {
-        $cache = new File($options);
+        $cacheMode = !empty($options['mode']) ? $options['mode'] : 'File';
+        $cache     = new $cacheMode($options);
         if ('' === $value) {
             // 获取缓存
             return 0 === strpos($name, '?') ? $cache->has(substr($name, 1)) : $cache->get($name);
