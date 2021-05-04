@@ -1,8 +1,6 @@
 {
     "name": "phpwdk/library",
-    "description": "description",
-    "minimum-stability": "stable",
-    "license": "proprietary",
+    "description": "自定义公共库",
     "authors": [
         {
             "name": "汪登科",
