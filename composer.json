@@ -16,6 +16,9 @@
             "Library\\": "src",
             "Library\\Cache\\": "src/Cache",
             "Library\\Util\\": "src/Util"
-        }
+        },
+        "files": [
+            "src/Library.php"
+        ]
     }
 }
