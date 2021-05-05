@@ -87,7 +87,7 @@ class File
      * @param string $name 缓存标识名
      * @return array|null
      */
-    private function getRaw($name)
+    protected function getRaw($name)
     {
         $filename = $this->getCacheKey($name);
 
