@@ -40,11 +40,11 @@ class File
     /**
      * 架构函数
      *
-     * @param array $options 参数
+     * @param array|null $options 参数
      */
-    public function __construct(array $options = [])
+    public function __construct($options = [])
     {
-        if (!empty($options)) {
+        if (is_array($options)) {
             $this->options = array_merge($this->options, $options);
         }
 

@@ -18,7 +18,7 @@ if (!function_exists('cache')) {
      */
     function cache($name = null, $value = '', $options = null)
     {
-        $cache     = new Library\Cache\File();
+        $cache     = new Library\Cache\File($options);
         if ('' === $value) {
             // 获取缓存
             return 0 === strpos($name, '?') ? $cache->has(substr($name, 1)) : $cache->get($name);
