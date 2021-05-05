@@ -87,7 +87,7 @@ class File
      * @param string $name 缓存标识名
      * @return array|null
      */
-    protected function getRaw($name)
+    private function getRaw($name)
     {
         $filename = $this->getCacheKey($name);
 
@@ -322,7 +322,7 @@ class File
      * @param integer|DateTimeInterface|DateInterval $expire 有效期
      * @return int
      */
-    protected function getExpireTime($expire)
+    private function getExpireTime($expire)
     {
         if ($expire instanceof DateTimeInterface) {
             $expire = $expire->getTimestamp() - time();
